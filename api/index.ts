@@ -26,7 +26,7 @@ app.get('/uploadUser', function (req, res) {
 
 app.post('/uploadSuccessful', urlencodedParser, async (req, res) => {
 	try {
-		await sql`INSERT INTO Users (Id, Name, Email) VALUES (${req.body.user_id}, ${req.body.name}, ${req.body.email});`;
+		await sql`INSERT INTO Users (Name, Email) VALUES (${req.body.name}, ${req.body.email});`;
 		res.status(200).send('<h1>User added successfully</h1>');
 	} catch (error) {
 		console.error(error);
